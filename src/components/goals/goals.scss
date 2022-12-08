@@ -1,0 +1,19 @@
+@use '../../mixins/main';
+.goals{
+    @include main.vflex;
+    
+    padding: 5px;
+    margin-top: 40px;
+    height: auto;
+    .top{
+        margin-bottom: 20px;
+        @include main.hflex;
+        justify-content: space-between;
+        align-items: flex-end;
+        .right{
+            font-size: 10;
+        }
+    }
+
+    
+}

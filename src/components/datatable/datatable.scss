@@ -1,0 +1,61 @@
+@use '/src/mixins/main';
+.datatable{
+    @include main.boxshadow;
+    margin: 40px 20px;
+    padding: 20px;
+
+    .datatableTitle{
+        @include main.hflex;
+        width: 100%;
+        font-size: 18px;
+        color: gray;
+        margin: 10px;
+        align-items: center;
+        justify-content: space-between;
+
+        .link{
+            color: green;
+            font-size: 14px;
+            font-weight: 400;
+            border: 1px solid green;
+            border-radius: 5px;
+            padding: 10px;
+        }
+    }
+
+// STATUSES
+    .status{
+        
+        border-radius: 5px;
+        padding: 5px;
+        // color: white;
+
+        &.Approved{
+            color: main.$primary;
+            background: main.$tprimary;
+        }
+        &.Pending{
+            color: main.$warning;
+            background: main.$twarning;
+        }
+        &.Declined{
+            color: main.$danger;
+            background: main.$tdanger;
+        }
+    }
+
+    // ACTION BUTTONS
+    .view, .delete{
+        cursor: pointer;
+        border: 1px dotted main.$primary;
+        border-radius: 5px;
+        padding: 5px;
+        color: main.$primary;
+    }
+    .delete{
+        color: main.$danger;
+        border: 1px dotted main.$danger;
+    }
+
+    
+}

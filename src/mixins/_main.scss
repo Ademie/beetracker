@@ -1,0 +1,22 @@
+$primary:rgb(46,82,176);
+$warning:rgb(250, 163, 12);
+$danger:rgb(244, 73, 73);
+$tprimary:rgba(116, 154, 248, 0.412);
+$twarning:rgba(251, 197, 105, 0.501);
+$tdanger:rgba(234, 140, 140, 0.531);
+
+@mixin vflex{
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin hflex{
+    display: flex;
+    
+}
+
+@mixin boxshadow{
+    border-radius: 15px;
+    box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+    -webkit-box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+}

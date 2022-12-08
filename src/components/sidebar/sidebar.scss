@@ -1,0 +1,51 @@
+$small:24rem;
+$primary:rgba(46,82,176);
+
+
+.active{
+    background: $primary;
+}
+
+// MOBILE
+@media (max-width: 480px) {
+ 
+  }
+
+// IPADS
+@media (max-width: 900px) {
+    .sidebar{
+        width: 75px!important;
+    }
+    .sideItems{
+        padding: 4px !important;
+    }
+    .sideText{
+        display: none!important;
+    }
+}
+
+// LAPTOPS
+@media (max-width: 1024px) {
+}
+
+// DESKTOP
+@media (max-width: 1200px) {
+}
+
+// // RESPONSIVE MODES
+// // MOBILE
+// @media (max-width: 480px) {
+ 
+// }
+
+// // IPADS
+// @media (max-width: 768px) {
+// }
+
+// // LAPTOPS
+// @media (max-width: 1024px) {
+// }
+
+// // DESKTOP
+// @media (max-width: 1200px) {
+// }

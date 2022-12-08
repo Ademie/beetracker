@@ -1,0 +1,176 @@
+@use '../../mixins/main';
+
+// FLUID TEXT
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
+  $u1: unit($min-vw);
+  $u2: unit($max-vw);
+  $u3: unit($min-font-size);
+  $u4: unit($max-font-size);
+
+  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+    & {
+      font-size: $min-font-size;
+      @media screen and (min-width: $min-vw) {
+        font-size: calc(
+          #{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} *
+            ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)})
+        );
+      }
+      @media screen and (min-width: $max-vw) {
+        font-size: $max-font-size;
+      }
+    }
+  }
+}
+$min_width: 320px;
+$max_width: 1200px;
+$min_font: 12px;
+$max_font: 16px;
+
+.mainNavContainer {
+  display: flex;
+
+  @include main.boxshadow;
+  border-radius: 0px 15px 0px 0px;
+  justify-content: space-between !important;
+
+  .navbar {
+    flex: 95%;
+    width: 100%;
+    justify-self: flex-end;
+    .leftSide {
+      flex: clamp(2, 8, 10);
+      justify-self: flex-start;
+
+      .head,
+      .search {
+        @include fluid-type($min_width, $max_width, $min_font, $max_font);
+      }
+      .search {
+        width: clamp(10vw, 35vw, 80vw);
+      }
+      .searchBtn {
+        font-size: 1.4em !important;
+      }
+    }
+    .rightSide {
+      flex: clamp(1, 2, 3);
+      justify-self: flex-end;
+
+      // notification
+      .notification {
+        position: relative;
+        .counter {
+          background: rgba(240, 35, 35, 0.772);
+          position: absolute;
+          right: 0;
+          top: 0;
+          border-radius: 50%;
+          color: white;
+          width: 15px;
+          height: 15px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 10px;
+        }
+      }
+
+      .respfont {
+        @include fluid-type($min_width, $max_width, $min_font, $max_font);
+      }
+    }
+  }
+
+  .toggleButton {
+    flex: 5%;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+}
+
+// IPADS
+// 768
+
+@media (max-width: 900px) {
+  .mainNavContainer {
+    height: 10.4vh;
+    display: flex;
+    justify-content: flex-end;
+
+    .navbar {
+      display: none !important;
+      .leftSide {
+        .head,
+        .search {
+          font-size: 14px !important;
+        }
+        .searchBtn {
+          font-size: 1.4em !important;
+        }
+      }
+    }
+    .toggleButton {
+      display: block;
+      position: absolute;
+      right: 0;
+    }
+    // APPEND THIS ID AFTER TOGGLE
+    #hidden {
+      position: absolute;
+      right: 5vw;
+      top: 11vh;
+      height: 10vh;
+      width: 78%;
+      display: flex !important;
+      @include main.boxshadow;
+      background: rgb(255, 255, 255);
+
+      // background: rgba(128, 128, 128, 0.25);
+      justify-content: center !important;
+      .search {
+        border-left: 10px;
+      }
+
+      .searchBtn {
+        font-size: 1.2em !important;
+      }
+
+      .notification {
+        .counter {
+          height: 11px;
+          width: 11px;
+          right: 4px;
+          top: 4px;
+        }
+      }
+      .avatar {
+        height: 27px;
+        width: 25px;
+        margin-right: 10px;
+      }
+      .username {
+        display: none;
+      }
+      .head {
+        display: none;
+      }
+    }
+  }
+}
+
+// LAPTOPS
+@media (max-width: 1024px) {
+}
+
+// DESKTOP
+@media (max-width: 1200px) {
+}

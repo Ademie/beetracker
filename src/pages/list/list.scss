@@ -1,0 +1,7 @@
+@use '../../mixins/main';
+.chartbox{
+    @include main.hflex;
+    padding: 20px;
+    gap: 20px;
+    
+}

@@ -1,0 +1,26 @@
+@use '../../mixins/main';
+.cardContainer{
+    background: purple;
+    @include main.vflex;
+    @include main.boxshadow;
+    color: white;
+    height: 180px;
+    width: 250px!important;
+    justify-content: space-between;
+    padding: 15px;
+
+    // 80 75 239
+    background: rgb(80 75 239);
+
+    .cardtop, .cardcenter, .cardbottom{
+        @include main.hflex;
+        justify-content: space-between;
+    }
+    .cardcenter{
+        justify-self: center;
+        margin-top: 20px;
+    }
+    .cardbottom{
+        align-self: flex-end;
+    }
+}

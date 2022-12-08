@@ -1,0 +1,82 @@
+@use '../../mixins/main';
+.profile {
+  .top {
+    @include main.hflex;
+    padding: 20px;
+    gap: 20px;
+
+    .left {
+      flex: 1;
+      @include main.boxshadow;
+      padding: 20px;
+      position: relative;
+
+      .editButton {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 5px;
+        font-size: 12px;
+        cursor: pointer;
+        color: main.$primary;
+        background-color: main.$tprimary;
+        border-top-right-radius: inherit;
+      }
+
+      .item {
+        @include main.hflex;
+        gap: 20px;
+        
+        align-items: center;
+        width: auto;
+        min-width: 400px;
+
+        .itemImg {
+          width: 100px;
+          height: 100px;
+          object-fit: cover;
+          border-radius: 50%;
+        }
+
+        .details{
+            .itemTitle{
+                margin-bottom: 10px;
+                color: #555;
+            }
+            .detailItem{
+                margin-bottom: 10px;
+                font-size: 14px;
+
+                .itemKey{
+                    font-weight: bold;
+                    color: gray;
+                    margin-right: 5px;
+                }
+
+                .itemValue{
+                    font-weight: 300;
+                }
+            }
+        }
+      }
+    }
+
+    .right {
+      flex: 2;
+      @include main.hflex;
+      width: 100%;
+      justify-content: flex-end;
+      align-items: flex-end;
+    }
+
+  }
+  .bottom{
+      padding: 20px;
+      margin:10px 20px;
+      @include main.boxshadow;
+  }
+  .mainTitle{
+    color: lightgray;
+    margin-bottom: 20px;
+}
+}

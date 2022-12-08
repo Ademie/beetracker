@@ -1,0 +1,27 @@
+@use '../../mixins/main';
+.chart{
+    flex: 3;
+    justify-content: space-between;
+    @include main.boxshadow;
+    padding: 20px;
+    height: auto;
+    .charthead{
+        @include main.hflex;
+        justify-content: space-between;
+        align-items: center;
+        color:main.$primary;
+        margin-bottom: 20px;
+
+        .month{
+            @include main.hflex;
+            align-items: center;
+            font-size: 14px;
+        }
+    }
+
+    // overflow-x: show!important;
+    .chartBox{
+        @include main.hflex;
+        justify-content: center;
+    }
+}

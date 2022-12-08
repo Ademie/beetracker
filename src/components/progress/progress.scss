@@ -1,0 +1,63 @@
+@use '/src/mixins/main';
+
+.goContent{
+    background: rgba(236, 250, 252, 0.975);
+    border-radius: 20px;
+    height: 120px;
+    margin-top: 20px;
+    .progTitle{
+        
+        // justify-content: space-between;
+        justify-content: flex-start;
+        padding: 15px;
+        
+        
+        .thumbNail{
+            border-radius: 50%;
+            background: white;
+            width: 40px;
+            height: 40px;
+            padding: 10px;
+            margin-right: 20px;
+        }
+
+        .progInfo{
+            
+            @include main.vflex;
+            align-items: flex-start;
+            justify-content: center;
+            
+            .small{
+                
+                font-size: 14px!important;
+            }
+            .smText{
+                font-size: 12px!important;
+            }
+            
+        }
+    }
+    // PROGRESS BAR
+    .progContent{
+        @include main.hflex;
+        
+        padding: 10px;
+        margin-top: -15px;
+        .progBar{
+            border-radius: 50px;
+            background: rgba(137, 148, 153, 0.511);
+            height: 5px;
+            width: 100%;
+            .progDone{
+                width: 0;
+                transition: 1s ease 0.3s;
+                height: 5px;
+                border-radius: 50px;
+            }
+        }
+        .progText{
+            font-size: 10px!important;
+            align-self: flex-end;
+        }
+    }
+}

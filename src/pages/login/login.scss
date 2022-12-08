@@ -1,0 +1,33 @@
+@use '/src/mixins/main';
+.login{
+    height: 100vh;
+    @include main.hflex;
+    align-items: center;
+    justify-content: center;
+
+    form{
+        @include main.vflex;
+        align-items: center;
+        
+        input{
+            width: 200px;
+            height: 30px;
+            margin: 10px;
+        }
+
+        button{
+            width: 210px;
+            height: 30px;
+            border: none;
+            background: main.$primary;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        span{
+            font-size: 12px;
+            color: main.$danger;
+            margin-top: 10px;
+        }
+    }
+}
