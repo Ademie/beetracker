@@ -16,15 +16,6 @@ const EditAccount = ({ inputs, title, details }) => {
   const [accounts, setAccounts] = useState([]);
   const {currentUser} = useContext(AuthContext)
 
-  const myObj = {
-    id: 'hey',
-    name: 'boo'
-  }
-  useEffect(()=>{
-    localStorage.setItem('boo', "accounts")
-  },[])
-
-  console.log('local',localStorage.getItem('boo'))
   
   
   const accntSelect = [

@@ -54,7 +54,7 @@ const Chart = () => {
       const last4Months = new Date(new Date().setMonth(today.getMonth() - 5));
       const last5Months = new Date(new Date().setMonth(today.getMonth() - 6));
 
-
+      
       // BILLS QUERY
       const currentMonthQuery = query(
         billsRef,
@@ -243,6 +243,12 @@ const Chart = () => {
     getGraphData()
   }, [])
 
+  const setLocal = () => {
+    localStorage.setItem('month', 'mymonth')
+  }
+  setLocal()
+  
+  
   const data = [
     {
       name: 'Month 1',

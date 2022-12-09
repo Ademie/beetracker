@@ -1,51 +1,83 @@
 @use '../../mixins/main';
 
 
-.investments{
+.investments {
     flex: 1;
     @include main.boxshadow;
     padding: 15px;
     padding-left: 35px;
     height: auto;
-    max-width: 30vw!important;
+    max-width: 30vw !important;
     align-items: flex-end;
     justify-content: center;
-    
 
-    .invs{
-        margin-top: 40px;
-        margin-bottom: 40px;
-        
-        .content{
-            @include main.hflex;
-            margin: 20px 0px;
+    .top {
+        @include main.hflex;
+        justify-content: space-between;
+        align-items: center;
+        color: main.$primary;
+    }
+
+    .bottom {
+        padding: 20px;
+        @include main.vflex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+
+        .investChart {
+            width: 150px;
+            height: 150px;
+        }
+
+        .title {
+            font-weight: 500;
+            color: gray;
+        }
+
+        .amount {
+            font-size: 30px;
+        }
+
+        .desc {
+            font-weight: 300;
+            font-size: 14px;
+            color: gray;
+            text-align: center;
+        }
+
+        .summary {
+            display: flex !important;
+            justify-content: space-between;
             align-items: center;
-            .avatar{
-                margin-right: 20px;
-            }
-            .text{
-                font-size: 15px;
-                .small{
-                    color: rgb(169, 210, 248);
-                    font-size: 13px;
+            width: 100%;
+
+            .item {
+                text-align: center;
+
+                .itemTitle {
+                    font-size: 14px;
+                    color: gray;
+                }
+
+                .itemResult {
+                    display: flex;
+                    align-items: center;
+                    margin-top: 10px;
+                    font-size: 14px;
+
+
+                    &.thismonth {
+                        color: #00C49Fff;
+                    }
+
+                    &.lastmonth {
+                        color: #00C49Fff;
+                    }
+
                 }
             }
-        }
-    }
-    .total{
-        @include main.vflex;
-        align-self: flex-end;
-        
-       
-        .title{
-            @include main.hflex;
-            align-items: center;
-            justify-content: flex-start;
-        }
-        .sum{
-            color: main.$warning;
-            font-weight: bold;
-            margin-left: 10px;
+
         }
     }
 }

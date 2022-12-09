@@ -26,7 +26,6 @@ const Networthdata = () => {
   const loansRef = collection(db, 'users', currentUser.uid, 'loans');
   const billsRef = collection(db, 'users', currentUser.uid, 'bills');
 
-  // const networthRef = collection(db, 'users', currentUser.uid, 'networth');
 
   useEffect(() => {
     const getNetworth = async () => {
@@ -45,7 +44,7 @@ const Networthdata = () => {
         acctstotal += parseInt(balance.openingbalance);
       }
       setAcctsbalance(acctstotal);
-      // console.log('acct',acctstotal)
+      
 
       let cards = cardsdata.docs.map(doc => ({ ...doc.data(), id: doc.id }));
       let cardstotal = 0;
@@ -98,9 +97,8 @@ const Networthdata = () => {
   return (
 
     <div>
-   <sup style={{ fontSize: 20 }}>$</sup>
       <span style={{ fontSize: 22 }}>
-        {tbalance}
+        ${tbalance}
       </span>
     </div>
   )

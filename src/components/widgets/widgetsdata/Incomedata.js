@@ -3,32 +3,31 @@ import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../../firebase';
 import { AuthContext } from '../../../context/AuthContext';
 
-const Billsdata = () => {
+const Incomedata = () => {
   const { currentUser } = useContext(AuthContext);
   const [tbalance, setTbalance] = useState(null);
   
-  const billsRef = collection(db, "users", currentUser.uid, "bills");
+  const incomeRef = collection(db, "users", currentUser.uid, "income");
   useEffect(() => {
-    const getBills = async () => {
-      const data = await getDocs(billsRef);
-      let bills = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
-      console.log('bills', bills)
+    const getIncome = async () => {
+      const data = await getDocs(incomeRef);
+      let income = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
       let total = 0;
-      for (let balance of bills) {
-        total += parseInt(balance.amount);
+      for (let balance of income) {
+        total += parseInt(balance.netamount);
       }
       setTbalance(total);
     };
-    getBills();
+    getIncome();
   }, []);
   return (
     <div>
-      <sup style={{ fontSize: 20 }}>$</sup>
+      {/* <span style={{ fontSize: 20 }}>$</span> */}
       <span style={{ fontSize: 22 }}>
-        {tbalance}
+        ${tbalance}
       </span>
     </div>
   )
 }
 
-export default Billsdata
+export default Incomedata

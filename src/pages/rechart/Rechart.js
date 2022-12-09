@@ -2,6 +2,7 @@ import './rechart.scss';
 import { BarChart, Bar,  XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import {  Heading } from '@chakra-ui/layout';
 import { AddCircleOutlineRounded } from '@material-ui/icons';
+import { useEffect } from 'react';
 const mydata = [
   {
     name: 'Week 1',
@@ -29,14 +30,21 @@ const mydata = [
   },
 ];
 
+
+
 const Rechart = ({aspect, title}) => {
+  const getLocal = () => {
+    const our = localStorage.getItem('month')
+    console.log(our)
+  }
+  getLocal();
   return (
     <div className="rechart">
       <div className="recharthead">
             <Heading size="sm">{title}</Heading>
             <Heading size="sm" className='month'>
               <AddCircleOutlineRounded style={{fontSize:"14px", marginRight:"5px"}}/>
-              Current Month</Heading>
+              6 Months</Heading>
           </div>
     
     <BarChart

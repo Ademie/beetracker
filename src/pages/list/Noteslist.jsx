@@ -4,9 +4,9 @@ import Navbar from '../../components/navbar/Navbar';
 import Sidebar from '../../components/sidebar/Sidebar';
 import '../list/list.scss';
 import '../home/home.scss';
-import Goalstable from '../../components/datatable/Goalstable';
+import Notestable from '../../components/datatable/Notestable';
 
-const Goalslist = ({title}) => {
+const Noteslist = ({ title }) => {
   return (
     <ChakraProvider theme={myTheme}>
       <div className="home list">
@@ -15,14 +15,12 @@ const Goalslist = ({title}) => {
         </div>
         <div className="navContainer">
           <Navbar />
-          <Goalstable title="Add New Goal"/>
-          
-          
+          <Notestable title="Add New Note" />
         </div>
-        
+
       </div>
     </ChakraProvider>
   );
 };
 
-export default Goalslist;
+export default Noteslist;

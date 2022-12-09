@@ -1,5 +1,6 @@
-import React, { useEffect, useLayoutEffect, useRef, useContext, useState } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import '../datatable/datatable.scss';
+
 import {
   collection,
   deleteDoc,
@@ -8,7 +9,6 @@ import {
   orderBy,
   query,
 } from 'firebase/firestore';
-import { db } from '../../firebase';
 import {
   Table,
   Thead,
@@ -19,9 +19,8 @@ import {
   TableContainer,
   Link,
 } from '@chakra-ui/react';
+import { db } from '../../firebase';
 import { AuthContext } from '../../context/AuthContext';
-
-
 
 const Acctable = ({ title }) => {
   const [accounts, setAccounts] = useState([]);
@@ -33,18 +32,13 @@ const Acctable = ({ title }) => {
   useEffect(() => {
     // REALTIME FETCHING OF DATA
     const acctRef = collection(db, "users", currentUser.uid, "accounts");
-
     // ORDER DATE BY TIMESTAMP
     const q = query(acctRef, orderBy('timeStamp'))
     const unsub = onSnapshot(
-      // collection(db, "users", currentUser.uid, "accounts"),
       q,
       snapshot => {
-        // initialize list as an array to store all data from db
         let list = [];
-
         snapshot.docs.forEach(doc => {
-          // push the documents as objects {key=id, value=data} into the list
           list.push({ id: doc.id, ...doc.data() });
         });
         setAccounts(list);
@@ -53,8 +47,6 @@ const Acctable = ({ title }) => {
         console.log(error);
       }
     );
-
-    // since data is fetched realtime, unsubscribe to prevent memory leak
     return () => {
       unsub();
     };
@@ -106,15 +98,9 @@ const Acctable = ({ title }) => {
               <Th>Date</Th>
               <Th>Bank Name</Th>
               <Th>Account Name</Th>
-              <Th 
-              // isNumeric
-              >Account Number</Th>
-              <Th 
-              // isNumeric
-              >Opening Balance</Th>
-              <Th 
-              // isNumeric
-              >Edit</Th>
+              <Th>Account Number</Th>
+              <Th>Opening Balance</Th>
+              <Th>Edit</Th>
               <Th>Delete</Th>
             </Tr>
           </Thead>
@@ -139,15 +125,13 @@ const Acctable = ({ title }) => {
                   />
                 </Td>
 
-                
+
                 <Td>{new Date(account.timeStamp.seconds * 1000).toLocaleDateString()}</Td>
                 <Td>{account.bankname}</Td>
                 <Td>{account.accountname}</Td>
                 <Td>{`${account.accountnumber}`}</Td>
                 <Td>${account.openingbalance}</Td>
-                <Td 
-                // isNumeric
-                >
+                <Td>
                   <Link _hover={{ textDecoration: 'none' }} href="/accounts/editacct">
                     <span className="view">edit</span>
                   </Link>

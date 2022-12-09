@@ -4,6 +4,7 @@ import * as ReactDOM from 'react-dom/client';
 import App from './App';
 import '../src/theme/style.css';
 import { AuthContextProvider } from './context/AuthContext';
+import { Provider } from "react-redux";
 
 const container = document.getElementById('root');
 const root = ReactDOM.createRoot(container);
@@ -11,8 +12,8 @@ const root = ReactDOM.createRoot(container);
 root.render(
   <StrictMode>
     <AuthContextProvider>
-      <ColorModeScript />
-      <App />
+      <ColorModeScript />      
+        <App />
     </AuthContextProvider>
   </StrictMode>
 );

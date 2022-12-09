@@ -5,6 +5,8 @@
     @include main.boxshadow;
     padding: 20px;
     height: auto;
+    
+    
     .charthead{
         @include main.hflex;
         justify-content: space-between;

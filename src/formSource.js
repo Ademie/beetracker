@@ -81,42 +81,30 @@ export const accountInputs = [
     label: 'Bank Name',
     type: 'text',
     placeholder: 'Bank Name',
-    value: localStorage.getItem('boo'),
-
   },
   {
     id: "accountname",
     label: 'Account Name',
     type: 'text',
     placeholder: 'Account Name',
-    value: 'werey2',
   },
   {
     id: "accountnumber",
     label: 'Last 4 Digits of Account Number',
     type: 'number',
     placeholder: '**** 1234',
-    value: 3,
   },
   {
     id: "openingbalance",
     label: 'Opening Balance',
     type: 'number',
     placeholder: '$20,000',
-    value: 4,
   },
 ];
 
 
 // CREDIT CARDS
 export const cardInputs = [
-
-  // {
-  //   id: "bankname",
-  //   label: 'Bank Name',
-  //   type: 'text',
-  //   placeholder: 'Bank Name',
-  // },
   {
     id: "cardname",
     label: 'Card Name',
@@ -255,24 +243,6 @@ export const budgetInputs = [
     label: 'Amount',
     type: 'number',
     placeholder: '$20,000',
-    desc: 'Can be estimated'
-  },
-];
-
-// GOALS
-export const goalsInputs = [
-
-  {
-    id: "title",
-    label: 'Goal Title',
-    type: 'text',
-    placeholder: 'Payee',
-  },
-  {
-    id: "duration",
-    label: 'Duration',
-    type: 'number',
-    placeholder: '$20,000',
-    desc: 'Can be estimated'
+    desc: 'Can be estimated',
   },
 ];

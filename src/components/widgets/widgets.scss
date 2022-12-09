@@ -9,6 +9,10 @@
     padding: 10px;
     height: 100px;
     flex-direction: column;
+    @media (max-width: 900px) {
+        width: 80vw;
+        margin-bottom: 20px;
+}
     &:first-child{
         color: white;
         background-image: linear-gradient(to bottom right,rgba(46,82,176)65%, rgb(46,82,165) 35%);
@@ -37,7 +41,6 @@
         padding: 5px!important;
         border-radius: 5px!important;
         align-self: center;
-        // background: rgb(250, 163, 12)!important;
         color: white;
         
     }

@@ -7,7 +7,7 @@ import Sidebar from '../../components/sidebar/Sidebar';
 import './profile.scss';
 import simon from '../../components/progress/images/simon.jpg';
 import Rechart from '../rechart/Rechart';
-import Transactions from '../../components/transactions/Transactions';
+import Notestable from '../../components/datatable/Notestable';
 
 
 
@@ -55,14 +55,14 @@ const Profile = () => {
               </div>
             </div>
             <div className="right charts">
-              <Rechart aspect={1/1} title="Bills and Income(Last 6 months)"/>
+              <Rechart aspect={1/1} title="Investment & Savings"/>
             </div>
           </div>
           <div className="bottom">
           <Heading size="sm" className="mainTitle">
-                Last Transactions
+                Short Notes
               </Heading>
-          <Transactions/>
+          <Notestable/>
           </div>
         </div>
       </div>

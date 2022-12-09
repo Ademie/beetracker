@@ -11,7 +11,7 @@ import NewIncome from './pages/new/NewIncome';
 import NewInvest from './pages/new/NewInvest';
 import NewLoan from './pages/new/NewLoan';
 import NewSaving from './pages/new/NewSaving';
-import NewGoal from './pages/new/NewGoal';
+import NewNote from './pages/new/NewNote';
 
 
 import Accountslist from './pages/list/Accountslist';
@@ -22,6 +22,7 @@ import Incomelist from './pages/list/Incomelist';
 import Budlist from './pages/list/Budlist';
 import Savingslist from './pages/list/Savingslist';
 import Investlist from './pages/list/Investlist';
+import Noteslist from './pages/list/Noteslist';
 import EditProfile from './pages/new/EditProfile';
 
 import {
@@ -35,13 +36,13 @@ import {
   investInputs,
   profileInputs,
   signupInputs,
-  goalsInputs
 } from './formSource';
 import Signup from './pages/signup/Signup';
 import { useContext } from 'react';
 import { AuthContext } from './context/AuthContext';
 import EditAccount from './pages/edit/EditAccount';
-import Goalslist from './pages/list/Goalslist';
+
+
 
 function App() {
 
@@ -327,17 +328,17 @@ function App() {
               />
             </Route>
 
-            <Route path="goals">
+            <Route path="notes">
               <Route
                 index
                 element={
                   <RequireAuth>
-                    <Goalslist />
+                    <Noteslist />
                   </RequireAuth>
                 }
               />
               <Route
-                path=":goalsId"
+                path=":notesId"
                 element={
                   <RequireAuth>
                     <Single />
@@ -348,9 +349,9 @@ function App() {
                 path="new"
                 element={
                   <RequireAuth>
-                    <NewGoal
-                      inputs={goalsInputs}
-                      title="Add a New Goal"
+                    <NewNote
+                      
+                      title="Add a New note"
                       details="Use the form below to add a new card, make sure that all card details are entered correctly. After succesfully adding a card, you will be prompted to add another if you want to."
                     />
                   </RequireAuth>

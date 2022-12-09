@@ -69,7 +69,6 @@
           .imgupload{
             @include main.hflex;
             align-items: center;
-            // justify-content: space-between;
             gap: 10px;
           }
 
@@ -124,4 +123,20 @@
       }
     }
   }
+  // NOTES
+  .notesform{
+    @include main.vflex;
+    width: 84%;
+    gap: 20px;
+    padding: auto;
+    .notestext{
+      @include main.vflex;
+      border: 1px solid main.$primary;
+      border-radius: 2px;
+      height: 200px;
+      width: 100%!important;
+    }
+  }
+
+  // 
 }

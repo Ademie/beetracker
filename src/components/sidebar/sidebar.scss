@@ -8,13 +8,13 @@ $primary:rgba(46,82,176);
 
 // MOBILE
 @media (max-width: 480px) {
- 
   }
 
 // IPADS
 @media (max-width: 900px) {
     .sidebar{
         width: 75px!important;
+        display: none!important;
     }
     .sideItems{
         padding: 4px !important;
@@ -39,6 +39,8 @@ $primary:rgba(46,82,176);
 // }
 
 // // IPADS
+// @media (max-width: 900px) {
+// }
 // @media (max-width: 768px) {
 // }
 
