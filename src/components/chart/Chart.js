@@ -16,12 +16,10 @@ import { collection, query, where, getDocs } from 'firebase/firestore';
 import { db } from '../../firebase';
 import { AuthContext } from '../../context/AuthContext';
 
-
-
-
-
 const Chart = () => {
-  const { currentUser } = useContext(AuthContext);
+  const { currentUser, INITIAL_STATE } = useContext(AuthContext); 
+  const {currentMonth, lastMonth, last2Months, last3Months, last4Months, last5Months, today} = INITIAL_STATE;
+
   const billsRef = collection(db, 'users', currentUser.uid, 'bills');
   const incomeRef = collection(db, 'users', currentUser.uid, 'income');
 
@@ -46,15 +44,6 @@ const Chart = () => {
   useEffect(() => {
     const getGraphData = async () => {
 
-      const today = new Date();
-      const currentMonth = new Date(new Date().setMonth(today.getMonth() - 1));
-      const lastMonth = new Date(new Date().setMonth(today.getMonth() - 2));
-      const last2Months = new Date(new Date().setMonth(today.getMonth() - 3));
-      const last3Months = new Date(new Date().setMonth(today.getMonth() - 4));
-      const last4Months = new Date(new Date().setMonth(today.getMonth() - 5));
-      const last5Months = new Date(new Date().setMonth(today.getMonth() - 6));
-
-      
       // BILLS QUERY
       const currentMonthQuery = query(
         billsRef,
@@ -243,10 +232,6 @@ const Chart = () => {
     getGraphData()
   }, [])
 
-  const setLocal = () => {
-    localStorage.setItem('month', 'mymonth')
-  }
-  setLocal()
   
   
   const data = [

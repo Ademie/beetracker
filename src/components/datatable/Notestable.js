@@ -21,8 +21,8 @@ import {
   orderBy,
   query,
 } from 'firebase/firestore';
-import { FaBookReader, FaDownload } from 'react-icons/fa';
-import { ImPrinter, ImQuill } from 'react-icons/im';
+import { FaBookReader} from 'react-icons/fa';
+import { ImPrinter } from 'react-icons/im';
 import { db } from '../../firebase';
 import { AuthContext } from '../../context/AuthContext';
 
@@ -134,9 +134,14 @@ const Notestable = () => {
                     checked={note.select}
                   />
                 </Td>
-                <Td>{new Date(note.timeStamp.seconds * 1000).toLocaleDateString()}</Td>
+                <Td >{new Date(note.timeStamp.seconds * 1000).toLocaleDateString()}</Td>
                 <Td>{note.title}</Td>
-                <Td>{note.text}</Td>
+                <Td>
+                  {
+                    note.text.length >= 40 ?
+                      `${note.text.substring(0,40)}...`
+                      : note.text
+                  }</Td>
                 <Td>
                   <Link _hover={{ textDecoration: 'none' }} href="/notes/new">
                     <span className="view">edit</span>

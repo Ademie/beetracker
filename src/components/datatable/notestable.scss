@@ -6,6 +6,7 @@
     height: auto;
     padding: 20px;
     margin-top: 40px;
+    max-width: 98%!important;
     .top{
         @include main.hflex;
         justify-content: space-between;

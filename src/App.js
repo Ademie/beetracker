@@ -49,10 +49,6 @@ function App() {
   // protect routes from guest
   const {currentUser} = useContext(AuthContext)
   
-  
-  
-  
-
   const RequireAuth = ({ children }) => {
     return currentUser ? children : <Navigate to="/login" />;
   };
